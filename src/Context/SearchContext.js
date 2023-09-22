@@ -1,13 +1,10 @@
 import { createContext, useContext, useState } from 'react'
-import { contentData } from '../Constants/contentData'
 
 const SearchContext = createContext()
 
 export const SearchContextProvider = ({ children }) => {
   const [companies, setCompanies] = useState([])
   const [searchField, setSearchField] = useState('')
-
-  const allCompanies = contentData.searchData.companies
 
   const isSearchFieldEmpty = searchField === ''
   const isCompaniesFound = !!companies.length
@@ -19,11 +16,9 @@ export const SearchContextProvider = ({ children }) => {
         setCompanies,
         searchField,
         setSearchField,
-        allCompanies,
         isSearchFieldEmpty,
         isCompaniesFound,
-      }}
-    >
+      }}>
       {children}
     </SearchContext.Provider>
   )

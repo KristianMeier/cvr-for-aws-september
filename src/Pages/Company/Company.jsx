@@ -2,10 +2,10 @@ import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Loading } from '../../Components/Loading'
+import { API_ENDPOINT } from '../../Constants/Constants'
 import { convertCompanyData } from '../../Utils/convertCompanyData'
 import { CompanyInfo } from './CompanyInfo'
 import { CompanyTable } from './CompanyTable'
-import { API_ENDPOINT } from '../../Constants/Constants'
 
 export const Company = () => {
   const { routeParams } = useParams()

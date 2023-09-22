@@ -1,4 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { API_ENDPOINT } from '../../Constants/Constants'
 import { SearchCompany } from './SearchCompany'
 import { SearchNoResults } from './SearchNoResults'
 import { convertSearchData } from '../../Utils/convertSearchData'
@@ -11,12 +13,19 @@ export const Search = () => {
     searchField,
     companies,
     setCompanies,
-    allCompanies,
     isCompaniesFound,
     isSearchFieldEmpty,
   } = useSearchContext()
+  const [apiData, setApiData] = useState({})
+  const isNoData = !apiData.searchData
 
   useEffect(() => {
+    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
+  }, [apiData])
+
+  useEffect(() => {
+    if (isNoData) return
+    const allCompanies = apiData.searchData.companies
     setCompanies(filterCompanies(searchField, allCompanies))
   }, [searchField])
 
