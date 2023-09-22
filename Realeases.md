@@ -22,11 +22,11 @@ This version includes several changes, most of them originating in the feedback 
 
 9. Made `Navbar Fixed` with a hacky/hardcoded implementation for Navbar-expanding on small screens, when showing the navlinks.
 
-10. In `Virkopedia and Company` component the app was relying an a static id-property from contentData.js. This was poor design, and a typo made "Collateral"-menu-tab break. Clicking "Colleteral" made the app look at the 13th array index, which did not exist. This is now done with index from mapping now, in both Company and Virkopedia.
+10. In `Virkopedia and Company` component the app was relying an a static id-property from staticData. This was poor design, and a typo made "Collateral"-menu-tab break. Clicking "Colleteral" made the app look at the 13th array index, which did not exist. This is now done with index from mapping now, in both Company and Virkopedia.
 
 11. Extracted several `long conditions into variables`.
 
-12. Renaming Data.js with the JsData object to `contentData.js` with contentData object.
+12. Renaming Data.js with the JsData object to `staticData.js` with staticData object.
 
 13. `Removed Backend folder` and distributed contents to constants and utils.
 
