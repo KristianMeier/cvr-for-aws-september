@@ -9,22 +9,20 @@ import { API_ENDPOINT } from '../../Constants/Constants'
 
 export const Company = () => {
   const { routeParams } = useParams()
-  const [contentData, setContentData] = useState({})
-  const isNoData = !contentData.searchData
+  const [apiData, setApiData] = useState({})
+  const isNoData = !apiData.searchData
 
   useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setContentData(response.data))
-  }, [contentData])
+    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
+  }, [apiData])
 
   if (isNoData) return <Loading />
 
-  const companyInfoData = contentData?.searchData?.companyinfoTitles
-  const lorem = contentData?.lorem
+  const companyInfoData = apiData?.searchData?.companyinfoTitles
+  const lorem = apiData?.lorem
 
-  const company = convertCompanyData(
-    contentData.searchData.companies[routeParams]
-  )
-  const companyName = contentData.searchData.companies[routeParams].companyName
+  const company = convertCompanyData(apiData.searchData.companies[routeParams])
+  const companyName = apiData.searchData.companies[routeParams].companyName
 
   if (!company) return <h2>No companies found...</h2>
 

@@ -6,17 +6,17 @@ import { Loading } from '../../Components/Loading'
 import { API_ENDPOINT } from '../../Constants/Constants'
 
 export const Virkopedia = () => {
-  const [contentData, setContentData] = useState({})
-  const isNoData = !contentData.searchData
+  const [apiData, setApiData] = useState({})
+  const isNoData = !apiData.searchData
   const [activeButtonIndex, setActiveButtonIndex] = useState(0)
 
   useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setContentData(response.data))
-  }, [contentData])
+    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
+  }, [apiData])
 
   if (isNoData) return <Loading />
 
-  const allArticles = contentData.virkopediaData
+  const allArticles = apiData.virkopediaData
 
   const { paragraphs, heading } = allArticles[activeButtonIndex]
 

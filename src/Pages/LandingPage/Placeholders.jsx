@@ -6,19 +6,19 @@ import { Loading } from '../../Components/Loading'
 import { API_ENDPOINT } from '../../Constants/Constants'
 
 export const Placeholders = () => {
-  const [contentData, setContentData] = useState({})
-  const isNoData = !contentData.searchData
+  const [apiData, setApiData] = useState({})
+  const isNoData = !apiData.searchData
 
   useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setContentData(response.data))
-  }, [contentData])
+    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
+  }, [apiData])
 
   if (isNoData) return <Loading />
 
   const placeholderWrapperData = [
-    contentData.placeholderData.rowOne,
-    contentData.placeholderData.rowTwo,
-    contentData.placeholderData.rowThree,
+    apiData.placeholderData.rowOne,
+    apiData.placeholderData.rowTwo,
+    apiData.placeholderData.rowThree,
   ]
 
   return (
