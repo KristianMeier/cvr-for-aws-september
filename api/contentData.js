@@ -1,4 +1,4 @@
-export const contentData = {
+contentData = {
   headerData: {
     titleLinks: [
       {
@@ -289,3 +289,5 @@ export const contentData = {
   lorem:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, veniam deserunt quo sit consequatur laborum ipsa distinctio architecto nam ad fuga ex veritatis sunt repudiandae ab provident, commodi corporis officiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, veniam deserunt quo sit consequatur laborum ipsa distinctio architecto nam ad fuga ex veritatis sunt repudiandae ab provident, commodi corporis officiis. ',
 }
+
+module.exports = contentData
