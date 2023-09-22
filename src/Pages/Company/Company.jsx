@@ -1,20 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Loading } from '../../Components/Loading'
-import { API_ENDPOINT } from '../../Constants/Constants'
 import { convertCompanyData } from '../../Utils/convertCompanyData'
 import { CompanyInfo } from './CompanyInfo'
 import { CompanyTable } from './CompanyTable'
+import { useFetch } from '../../Hooks/useFetch'
 
 export const Company = () => {
   const { routeParams } = useParams()
-  const [apiData, setApiData] = useState({})
+  const apiData = useFetch()
   const isNoData = !apiData.searchData
-
-  useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
-  }, [apiData])
 
   if (isNoData) return <Loading />
 

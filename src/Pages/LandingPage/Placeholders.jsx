@@ -1,17 +1,11 @@
 import { Placeholder } from '../../Components/Placeholder/Placeholder'
 import { PlaceholderWrapper } from '../../Components/Placeholder/PlaceholderWrapper'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Loading } from '../../Components/Loading'
-import { API_ENDPOINT } from '../../Constants/Constants'
+import { useFetch } from '../../Hooks/useFetch'
 
 export const Placeholders = () => {
-  const [apiData, setApiData] = useState({})
+  const apiData = useFetch()
   const isNoData = !apiData.searchData
-
-  useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
-  }, [apiData])
 
   if (isNoData) return <Loading />
 

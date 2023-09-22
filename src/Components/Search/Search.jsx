@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { API_ENDPOINT } from '../../Constants/Constants'
+import { useEffect } from 'react'
 import { SearchCompany } from './SearchCompany'
 import { SearchNoResults } from './SearchNoResults'
 import { convertSearchData } from '../../Utils/convertSearchData'
 import { filterCompanies } from '../../Utils/filterCompanies'
 import { useSearchContext } from '../../Context/SearchContext'
 import { SearchStatistic } from './SearchStatistic'
+import { useFetch } from '../../Hooks/useFetch'
 
 export const Search = () => {
   const {
@@ -16,12 +15,8 @@ export const Search = () => {
     isCompaniesFound,
     isSearchFieldEmpty,
   } = useSearchContext()
-  const [apiData, setApiData] = useState({})
+  const apiData = useFetch()
   const isNoData = !apiData.searchData
-
-  useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
-  }, [apiData])
 
   useEffect(() => {
     if (isNoData) return

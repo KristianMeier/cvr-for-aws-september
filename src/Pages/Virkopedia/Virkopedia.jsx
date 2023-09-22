@@ -1,18 +1,13 @@
 import { VirkopediaArticle } from './VirkopediaArticle'
 import { VirkopediaTab } from './VirkopediaTab'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import { Loading } from '../../Components/Loading'
-import { API_ENDPOINT } from '../../Constants/Constants'
+import { useFetch } from '../../Hooks/useFetch'
 
 export const Virkopedia = () => {
-  const [apiData, setApiData] = useState({})
+  const apiData = useFetch()
   const isNoData = !apiData.searchData
   const [activeButtonIndex, setActiveButtonIndex] = useState(0)
-
-  useEffect(() => {
-    axios.get(API_ENDPOINT).then((response) => setApiData(response.data))
-  }, [apiData])
 
   if (isNoData) return <Loading />
 
