@@ -6,7 +6,7 @@
 
 2nd prio (tune react project)
 
-- Buy a domain, set up the react-project. Follow a tutorial first. Remember Elastic IP.
+- Buy a domain, set up the react-project. Follow a tutorial first. Remember Elastic IP. HUSK at sætte til port 80:3000 inden i docker-compose.yml
 - Get an SSL certificate
 - use the useFetchTwo to handle the dataloading that is "hacky" atm.
 - use a Amazon backend for the data
