@@ -18,7 +18,7 @@ export const COMPANY_PATH = '/company/:routeParams'
 export const USER_HINT_PATH = '/userhint'
 
 // API Endpoints
-export const API_ENDPOINT = 'http://localhost:4000/'
+export const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
 // Add Employees
 export const EMPLOYEE_LOCAL_STORAGE_KEY = 'employees'
