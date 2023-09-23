@@ -26,6 +26,10 @@ docker images
 
 docker image rm cvr-api
 
+# delete all images
+
+docker rmi $(docker images -q) -f
+
 # delete an image, that has a container in use
 
 docker image rm cvr-api -f
