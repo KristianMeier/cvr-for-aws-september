@@ -18,6 +18,7 @@ export const Search = () => {
   const apiData = useFetch()
   const isNoData = !apiData.searchData
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (isNoData) return
     const allCompanies = apiData.searchData.companies

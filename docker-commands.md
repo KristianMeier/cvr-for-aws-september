@@ -5,6 +5,11 @@ Commands
 lsof -i
 kill -9 <PID>
 
+## Public Images
+
+https://hub.docker.com/r/kristianmeier/cvr-for-aws-september-frontend
+https://hub.docker.com/r/kristianmeier/cvr-for-aws-september-api
+
 # docker make an image
 
 docker build -t cvr-api-image .
@@ -107,6 +112,7 @@ Dette gør altså det samme som de lange commands.
 # delete container and images of docker-compose
 
 docker-compose down --rmi all
+docker-compose down --rmi all -v
 add -v if you also want to delete the volumes.
 
 ### DOCKER COMPOSE
